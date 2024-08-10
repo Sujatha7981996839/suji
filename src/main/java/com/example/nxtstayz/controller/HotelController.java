@@ -8,7 +8,6 @@ import java.util.*;
 import com.example.nxtstayz.model.*;
 import com.example.nxtstayz.service.HotelJpaService;
 
-// Write your code here
 @RestController
 public class HotelController {
 

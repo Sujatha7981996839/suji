@@ -7,7 +7,6 @@ import java.util.ArrayList;
 import com.example.nxtstayz.model.*;
 import com.example.nxtstayz.service.RoomJpaService;
 
-// Write your code here
 @RestController
 public class RoomController {
 
