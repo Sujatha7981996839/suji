@@ -28,7 +28,6 @@ public class Hotel {
         this.hotelName = hotelName;
         this.location = location;
         this.rating = rating;
-
     }
 
     public int getHotelId() {

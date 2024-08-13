@@ -1,11 +1,9 @@
 package com.example.nxtstayz.repository;
 
+import java.util.ArrayList;
 import com.example.nxtstayz.model.*;
 
-import java.util.*;
-
 public interface RoomRepository {
-
     ArrayList<Room> getRooms();
 
     Room getRoomById(int roomId);

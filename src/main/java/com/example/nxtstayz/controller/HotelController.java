@@ -1,4 +1,3 @@
-
 package com.example.nxtstayz.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +9,6 @@ import com.example.nxtstayz.service.HotelJpaService;
 
 @RestController
 public class HotelController {
-
     @Autowired
     private HotelJpaService hotelJpaService;
 
@@ -35,7 +33,7 @@ public class HotelController {
     }
 
     @DeleteMapping("/hotels/{hotelId}")
-    public void deleteHotel(@PathVariable int hotelId) {
+    public void deleteHotel(@PathVariable("hotelId") int hotelId) {
         hotelJpaService.deleteHotel(hotelId);
     }
 

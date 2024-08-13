@@ -12,9 +12,11 @@ import com.example.nxtstayz.repository.*;
 
 @Service
 public class HotelJpaService implements HotelRepository {
-
     @Autowired
     private HotelJpaRepository hotelJpaRepository;
+
+    @Autowired
+    private RoomJpaRepository roomJpaRepository;
 
     @Override
     public ArrayList<Hotel> getHotels() {
@@ -27,7 +29,6 @@ public class HotelJpaService implements HotelRepository {
     public Hotel getHotelById(int hotelId) {
         try {
             return hotelJpaRepository.findById(hotelId).get();
-
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
@@ -35,8 +36,7 @@ public class HotelJpaService implements HotelRepository {
 
     @Override
     public Hotel addHotel(Hotel hotel) {
-        hotelJpaRepository.save(hotel);
-        return hotel;
+        return hotelJpaRepository.save(hotel);
     }
 
     @Override
@@ -53,18 +53,16 @@ public class HotelJpaService implements HotelRepository {
                 newHotel.setRating(hotel.getRating());
             }
             return hotelJpaRepository.save(newHotel);
-
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
-
     }
 
     @Override
     public void deleteHotel(int hotelId) {
         try {
             Hotel hotel = hotelJpaRepository.findById(hotelId).get();
-            List<Room> roooList = roomJpaRepository.findByHotel(hotel);
+            List<Room> roomList = roomJpaRepository.findByHotel(hotel);
 
             for (Room room : roomList) {
                 room.setHotel(null);
@@ -72,12 +70,10 @@ public class HotelJpaService implements HotelRepository {
 
             roomJpaRepository.saveAll(roomList);
             hotelJpaRepository.deleteById(hotelId);
-
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }
         throw new ResponseStatusException(HttpStatus.NO_CONTENT);
-
     }
 
     @Override
@@ -85,7 +81,6 @@ public class HotelJpaService implements HotelRepository {
         try {
             Hotel hotel = hotelJpaRepository.findById(hotelId).get();
             return roomJpaRepository.findByHotel(hotel);
-
         } catch (Exception e) {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND);
         }

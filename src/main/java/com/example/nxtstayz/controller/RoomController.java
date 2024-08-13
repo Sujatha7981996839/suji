@@ -9,7 +9,6 @@ import com.example.nxtstayz.service.RoomJpaService;
 
 @RestController
 public class RoomController {
-
     @Autowired
     private RoomJpaService roomJpaService;
 
@@ -34,7 +33,7 @@ public class RoomController {
     }
 
     @DeleteMapping("/hotels/rooms/{roomId}")
-    public void deleteRoom(@PathVariable("roomId```") int roomId) {
+    public void deleteRoom(@PathVariable("roomId") int roomId) {
         roomJpaService.deleteRoom(roomId);
     }
 
@@ -42,5 +41,4 @@ public class RoomController {
     public Hotel getRoomOfHotel(@PathVariable("roomId") int roomId) {
         return roomJpaService.getRoomOfHotel(roomId);
     }
-
 }

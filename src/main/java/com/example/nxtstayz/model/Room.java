@@ -10,7 +10,7 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int roomId;
 
-    @Column(name = "roomNumber")
+    @Column(name = "roomnumber")
     private String roomNumber;
 
     @Column(name = "type")
@@ -20,7 +20,7 @@ public class Room {
     private double price;
 
     @ManyToOne
-    @JoinColumn(name = "hotelId")
+    @JoinColumn(name = "hotelid")
     private Hotel hotel;
 
     public Room() {
@@ -32,7 +32,6 @@ public class Room {
         this.type = type;
         this.price = price;
         this.hotel = hotel;
-
     }
 
     public int getRoomId() {
@@ -55,7 +54,7 @@ public class Room {
         return type;
     }
 
-    public void setType(int type) {
+    public void setRoomType(String type) {
         this.type = type;
     }
 
@@ -74,5 +73,4 @@ public class Room {
     public void setHotel(Hotel hotel) {
         this.hotel = hotel;
     }
-
 }
